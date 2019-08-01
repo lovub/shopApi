@@ -33,22 +33,22 @@ public class SpUserBiz  {
 
     //修改性别
     public void updateSex(SpUserDo bean){
-        userDao.updateSexByUserId(bean.getUserId(),bean.getSex());
+        userDao.updateSexByUserId(bean.getUserId(),bean.getSex(),new Date());
     }
 
     //修改微信号
     public void updateWechat(SpUserDo bean){
-        userDao.updateWechatByUserId(bean.getUserId(),bean.getWechat());
+        userDao.updateWechatByUserId(bean.getUserId(),bean.getWechat(),new Date());
     }
 
     //修改姓名
     public void updateName(SpUserDo bean){
-        userDao.updateNameByUserId(bean.getUserId(),bean.getRealName());
+        userDao.updateNameByUserId(bean.getUserId(),bean.getRealName(),new Date());
     }
 
     //修改地区
     public void updateCityInfo(SpUserDo bean){
-        userDao.updateCityInfoByUserId(bean.getUserId(),bean.getProvince(),bean.getCity(),bean.getArea());
+        userDao.updateCityInfoByUserId(bean.getUserId(),bean.getProvince(),bean.getCity(),bean.getArea(),new Date());
     }
 
 }
