@@ -13,7 +13,7 @@ public interface ISpUserDao extends JpaRepository<SpUserDo, Long> {
 
     @Modifying
     @Query(value = "update SpUserDo p set p.realName = ?2,p.updateTime = ?3  where p.userId = ?1")
-    void updateNameByUserId(long userId, String realName, Date date);
+    void updateNameByUserId(long userId, String realName);
 
     @Modifying
     @Query(value = "update SpUserDo p set p.sex = ?2,p.updateTime = ?3 where p.userId = ?1")
