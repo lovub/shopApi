@@ -17,14 +17,17 @@ public interface ISpUserDao extends JpaRepository<SpUserDo, Long> {
 
     @Modifying
     @Query(value = "update SpUserDo p set p.sex = ?2,p.updateTime = ?3 where p.userId = ?1")
-    void updateSexByUserId(long userId, String sex,Date date);
+    void updateSexByUserId(long userId, String sex, Date date);
 
     @Modifying
     @Query(value = "update SpUserDo p set p.wechat = ?2,p.updateTime = ?3 where p.userId = ?1")
-    void updateWechatByUserId(long userId, String wechat,Date date);
+    void updateWechatByUserId(long userId, String wechat, Date date);
 
     @Modifying
     @Query(value = "update SpUserDo p set p.province = ?2,p.city = ?3,p.area = ?4,p.updateTime = ?5 where p.userId = ?1")
-    void updateCityInfoByUserId(long userId, String province, String city, String area,Date date);
+    void updateCityInfoByUserId(long userId, String province, String city, String area, Date date);
+
+    @Query("select spUser from SpUserDo spUser where user_id = ?1")
+    SpUserDo selectSpUserById(int spUserId);
 
 }

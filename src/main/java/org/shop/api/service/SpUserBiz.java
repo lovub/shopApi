@@ -10,20 +10,20 @@ import java.util.Date;
 
 @Service
 @Transactional
-public class SpUserBiz  {
+public class SpUserBiz {
 
     @Autowired
     private ISpUserDao userDao;
 
     //根据openId查询用户
-    public SpUserDo findByOpenId(String openId){
+    public SpUserDo findByOpenId(String openId) {
         return userDao.findByOpenId(openId);
     }
 
     //平台内注册
-    public long register(SpUserDo bean){
+    public long register(SpUserDo bean) {
         SpUserDo user = userDao.findByOpenId(bean.getOpenId());
-        if(user!=null){
+        if (user != null) {
             return user.getUserId();
         }
         bean.setCreateDate(new Date());
@@ -32,23 +32,31 @@ public class SpUserBiz  {
     }
 
     //修改性别
-    public void updateSex(SpUserDo bean){
-        userDao.updateSexByUserId(bean.getUserId(),bean.getSex(),new Date());
+    public void updateSex(SpUserDo bean) {
+        userDao.updateSexByUserId(bean.getUserId(), bean.getSex(), new Date());
     }
 
     //修改微信号
-    public void updateWechat(SpUserDo bean){
-        userDao.updateWechatByUserId(bean.getUserId(),bean.getWechat(),new Date());
+    public void updateWechat(SpUserDo bean) {
+        userDao.updateWechatByUserId(bean.getUserId(), bean.getWechat(), new Date());
     }
 
     //修改姓名
-    public void updateName(SpUserDo bean){
-        userDao.updateNameByUserId(bean.getUserId(),bean.getRealName(),new Date());
+    public void updateName(SpUserDo bean) {
+        userDao.updateNameByUserId(bean.getUserId(), bean.getRealName(), new Date());
     }
 
     //修改地区
-    public void updateCityInfo(SpUserDo bean){
-        userDao.updateCityInfoByUserId(bean.getUserId(),bean.getProvince(),bean.getCity(),bean.getArea(),new Date());
+    public void updateCityInfo(SpUserDo bean) {
+        userDao.updateCityInfoByUserId(bean.getUserId(), bean.getProvince(), bean.getCity(), bean.getArea(), new Date());
+    }
+
+    /**
+     * @param spUserId
+     * @return
+     */
+    public SpUserDo getSpUserById(int spUserId) {
+        return userDao.selectSpUserById(spUserId);
     }
 
 }
