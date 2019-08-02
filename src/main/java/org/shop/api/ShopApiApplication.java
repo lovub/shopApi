@@ -23,6 +23,7 @@ public class ShopApiApplication extends SpringBootServletInitializer {
 public class ShopApiApplication{
 
 	public static void main(String[] args) {
+		System.out.println("test");
 		SpringApplication.run(ShopApiApplication.class, args);
 	}
 
